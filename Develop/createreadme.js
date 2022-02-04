@@ -11,17 +11,17 @@ const generateReadme =
 - [Contribution](#contribution)
 - [Test](#test)
 - [License](#license)
-## Description {#description}
+## Description 
 ${description}
-## Installation {#installation}
+## Installation 
 ${installation}
-## Usage {#usage}
+## Usage 
 ${usage}
-## Contribution {#contribution}
+## Contribution 
 ${contribution}
-## Test {#test}
+## Test 
 ${test}
-## License {#license}
+## License 
 ${markdownbadge.getMarkdownBadge(license)}`
 
 inquirer.prompt(
