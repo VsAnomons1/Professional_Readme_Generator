@@ -2,7 +2,11 @@
 ## Description
 This project consist of generating a simple readme template using Node.js and dependencies such as Inquirer and File System(A Node.js library).
 ## Walkthrough
-[Demo](https://watch.screencastify.com/v/FejkpfoljD6acdWevrTS)
+[Demo on the project](https://watch.screencastify.com/v/FejkpfoljD6acdWevrTS)
+### Screenshots
+![Readme terminal](assets/readme_terminal.png)
+![Readme template](assets/readme_template.png)
+![Readme preview](assets/readme_preview.png)
 ## Installation
 Set up project using:
 npm install && node createreadme.js on the terminal
