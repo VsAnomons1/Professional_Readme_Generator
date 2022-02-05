@@ -2,7 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const markdownbadge = require('./markdownbadge');
 const generateReadme = 
-({projectTitle, description, installation, usage, contribution, test, license}) => 
+({name, projectTitle, description, installation, usage, contribution, github, test, license}) => 
 `# ${projectTitle}
 ## Table of Contents
 - [Description](#description)
@@ -10,22 +10,34 @@ const generateReadme =
 - [Usage](#usage)
 - [Contribution](#contribution)
 - [Test](#test)
+- [Questions](#questions)
 - [License](#license)
 ## Description 
 ${description}
-## Installation 
+## Installation
+Intial steps to start the project:
 ${installation}
 ## Usage 
 ${usage}
 ## Contribution 
 ${contribution}
 ## Test 
+test instructions:
 ${test}
+## Questions
+if issues arise on the project click on the link below:
+[Github Link](https://github.com/${github})
 ## License 
-${markdownbadge.getMarkdownBadge(license)}`
+${markdownbadge.getMarkdownBadge(license, name)} 
+Copyright (c) [2022] [${name}]`
 
 inquirer.prompt(
     [
+        {
+            type: "input",
+            name: "name",
+            message: "What is your fullname?"
+        },
         {
             type: "input",
             name: "projectTitle",
@@ -34,27 +46,32 @@ inquirer.prompt(
         {
             type: "input",
             name: "description",
-            message: "Description of what your project does?"
+            message: "What is your project about?"
         },
         {
             type: "input",
             name: "installation",
-            message: "Provide any installation requirements on your project?"
+            message: "Any installation requirements on your project?"
         },
         {
             type: "input",
             name: "usage",
-            message: "Type in the the usage information of your project?"
+            message: "What usage information did you get from your project?"
         },
         {
             type: "input",
             name: "contribution",
-            message: "Type in contribution guidelines of your project?"
+            message: "Any contribution guidelines of your project?"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "What is your Github username?"
         },
         {
             type: "input",
             name: "test",
-            message: "Type in the test instructions of your project?"
+            message: "Any test instructions on your project?"
         },
         {
             type: "list",
@@ -68,6 +85,6 @@ inquirer.prompt(
     const readmeContent = generateReadme(answers);
 
     fs.writeFile("readme_template.md", readmeContent, (err) => 
-    err ? console.log(err): console.log("Successfully generated readme_template.md!!!")
+    err ? console.log(err): console.log("Successfully generated a Readme template!!!")
     );
 });
